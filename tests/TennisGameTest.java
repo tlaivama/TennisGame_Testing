@@ -63,6 +63,20 @@ public class TennisGameTest {
 		game.player1Scored();			
 	}
 	
+	@Test (expected = TennisGameException.class)
+	public void testTennisGame_Player2WinsPointAfterGameEnded_ResultsException() throws TennisGameException {
+		//Arrange
+		TennisGame game = new TennisGame();
+		//Act
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		//Act
+		// This statement should cause an exception
+		game.player2Scored();			
+	}
+	
 	@Test
 	public void testTennisGame_CorrectOrderOfGetScoreReturnString() throws TennisGameException {
 		TennisGame game = new TennisGame();
